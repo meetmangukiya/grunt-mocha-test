@@ -51,6 +51,8 @@ module.exports = function(grunt) {
     // for every supplied CLI parameter overwrite task option
     params.forEach(function(param) {
       options[param] = grunt.option(param) || options[param];
+      if (options[param] === undefined)
+        delete options[param]
     });
 
     // check if there are files to test
